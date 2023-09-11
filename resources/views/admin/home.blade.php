@@ -20,23 +20,27 @@
     </p>
     <session>
         <h2>Listes des articles</h2>
-        @if(count($toto)  > 0)
-        @foreach ($toto as $articles)
+        @if(count($articles)  > 0) :
+        @foreach ($articles as $article) :
             <article>
                 <h3>
-                     {{ $articles['title'] }} 
+                     {{ $article['title'] }} 
                 </h3>
                 <p>
-                     {{ $articles['description'] }} 
+                     {{ $article['description'] }} 
                 </p>
+                <a href="{{route('detail', $article['id'])}}">Voir article</a>
             </article>
         @endforeach
-        @else
+        @else :
             <p>Pas d'article pour le moment ... </p>
         @endif
     </session>
+    {{-- @empty($articles)
+        
+    @endempty --}}
 
-    <pre><?php var_dump($articles) ?></pre>
+    {{-- <pre><?php var_dump($articles) ?></pre> --}}
 </body>
 
 </html>
